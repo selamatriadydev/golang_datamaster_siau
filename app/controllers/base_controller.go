@@ -9,8 +9,6 @@ import (
 	"github.com/jinzhu/gorm"
 
 	_ "github.com/go-sql-driver/mysql"   //mysql database driver
-
-	"backend_api/routes"
 )
 
 type Server struct {

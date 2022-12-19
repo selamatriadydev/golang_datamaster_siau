@@ -9,7 +9,7 @@ import (
 
 	"github.com/badoux/checkmail"
 	"github.com/jinzhu/gorm"
-	"gorm.io/plugin/soft_delete"
+	// "gorm.io/plugin/soft_delete"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -22,7 +22,8 @@ type User struct {
 	Password  string    `gorm:"size:100;not null;" json:"password"`
 	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
 	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
-	DeletedAt soft_delete.DeletedAt `json:"deleted_at"`
+	// DeletedAt soft_delete.DeletedAt `gorm:"null;"json:"deleted_at"`
+	DeletedAt *time.Time `gorm:"null;"json:"deleted_at"`
 }
 
 func Hash(password string) ([]byte, error) {
